@@ -1,0 +1,74 @@
+header{
+    font-size: 200px;
+    color: white;
+    text-align:center;
+    font-family: 'Quicksand', sans-serif;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+button{
+    font-size: 30px;
+    border: 1px solid black;
+    color:white;
+    background-color:black;
+    border-radius: 3px;
+}
+form{
+    text-align:center;
+    margin:30px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav {
+  background-color: #1f2630;
+  display: inline-block;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+#title-font{
+  font-family: 'Russo One', sans-sans-serif;
+  font-size: 50px;
+  color: red;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: -50%;
+}
+
+.search-area{
+  text-align: center;
+}
+
+.search-input{
+  width: 15%;
+}
+
+#pokemon-in{
+  width: 15%;
+}
+
+.results {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.js-single-result {
+	float: left;
+	max-width: 40%;
+}
+
+.js-name {
+	font-size: 25px;
+	font-weight: bold;
+	color: #FFF65C;
+}
+
+p {
+	font-size: 20px;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	color: white;
+}
