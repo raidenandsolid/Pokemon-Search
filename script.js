@@ -5,6 +5,7 @@ const typeAPI = 'https://pokeapi.co/api/v2/type/'
 const speciesAPI = 'https://pokeapi.co/api/v2/pokemon-species/'
 
 function buildResults(monster) {
+  //initialize and print to console the object
   console.log(monster)
   let pokeName = '';
   let pokeType = '';
@@ -12,20 +13,24 @@ function buildResults(monster) {
   let pokeWeight = '';
   //set returned data
   pokeName = monster.name;
-  /*pokeName = pokeName.charAt(0).toUpperCase() + name.slice(1)*/
+  pokeName = pokeName.charAt(0).toUpperCase() + pokeName.slice(1)
   pokeID = monster.id;
   pokeWeight = monster.weight;
-  $('.results').append(`<h1>Pokemon found</h1>`);
-  $('.js-single-result').append(`Name: ${pokeName}`);
-  $('.js-single-result').append(`ID: ${pokeID}`);
-  $('.js-single-result').append(`Weight: ${pokeWeight} hectograms`);
-  /*
-  <div class="js-single-result">
-  <p class="js-name">${pokeName}</p>
-  <p>Type: ${pokeType}</p>
-  <p>Weight: ${pokeWeight} hectograms</p>
-  </div>
-  */
+  for (let i = 0; i < monster.types.length; i++) {
+    if ((i + 1) < monster.types.length) {
+        pokeType += monster.types[i].type.name + ", ";
+    } else {
+        pokeType += monster.types[i].type.name;
+    }
+  }
+  $('.results').append(`<h1>Pokemon found</h1>
+    <div class="js-single-result">
+      <p>Name: ${pokeName}</p>
+      <p>ID: ${pokeID}</p>
+      <p>Type: ${pokeType}</p>
+      <p>Weight: ${pokeWeight} hectograms</p>
+    </div>`
+  );
 }
 
 function searchPokedex(searchName) {
