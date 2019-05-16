@@ -5,21 +5,26 @@ const typeAPI = 'https://pokeapi.co/api/v2/type/'
 const speciesAPI = 'https://pokeapi.co/api/v2/pokemon-species/'
 
 function buildResults(monster) {
+  console.log(monster)
   let pokeName = '';
   let pokeType = '';
   let pokeID = '';
   let pokeWeight = '';
   //set returned data
   pokeName = monster.name;
+  /*pokeName = pokeName.charAt(0).toUpperCase() + name.slice(1)*/
   pokeID = monster.id;
   pokeWeight = monster.weight;
   $('.results').append(`<h1>Pokemon found</h1>`);
+  $('.js-single-result').append(`Name: ${pokeName}`);
+  $('.js-single-result').append(`ID: ${pokeID}`);
+  $('.js-single-result').append(`Weight: ${pokeWeight} hectograms`);
   /*
-    <div class="js-single-result">
-    <p class="js-name">${pokeName}</p>
-    <p>Type: ${pokeType}</p>
-    <p>Weight: ${pokeWeight} hectograms</p>
-    </div>
+  <div class="js-single-result">
+  <p class="js-name">${pokeName}</p>
+  <p>Type: ${pokeType}</p>
+  <p>Weight: ${pokeWeight} hectograms</p>
+  </div>
   */
 }
 
@@ -41,13 +46,9 @@ function searchPokedex(searchName) {
         */
     .then(response => response.json())
     .then(responseJson =>
-      buildResults(responseJson),
-      console.log(responseJson)
-      )
+      buildResults(responseJson))
     .catch(err =>
-      alert('Error occured during fetch'),
-      console.log('Fetch Error :-S', err)
-    )
+      console.log('Fetch Error :-S', err))
   }
 
 function handleForm() {
