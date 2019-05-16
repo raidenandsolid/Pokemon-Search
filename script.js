@@ -37,18 +37,6 @@ function searchPokedex(searchName) {
   const urlName = searchName.toLowerCase();
   let searchURL = pokemonAPI + urlName;
   fetch(searchURL)
-    /*
-    .then(
-      function(response) {
-        if (response.status !== 200) {
-          console.log('Error returning data. Status Code: ' + response.status);
-          return;
-        }
-        response.json().then(function(data) {
-          buildResults(data);
-          console.log(data);
-        });
-        */
     .then(response => response.json())
     .then(responseJson =>
       buildResults(responseJson))
