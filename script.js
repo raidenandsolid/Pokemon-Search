@@ -40,8 +40,10 @@ function searchPokedex(searchName) {
     .then(response => response.json())
     .then(responseJson =>
       buildResults(responseJson))
-    .catch(err =>
-      console.log('Fetch Error :-S', err))
+    .catch(err => {
+      $('.results').append(`<h1>Pokemon not found</h1>`)
+      console.log('Fetch Error :-S', err)
+    })
   }
 
 function handleForm() {
